@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Notas-CM</string>
+    <string name="string_save">Salvar</string>
+    <string name="string_back">Retroceder</string>
+    <string name="string_delete">Apagar</string>
+    <string name="string_portrait">Vista Portrait</string>
+    <string name="string_landscape">Vista Landscape</string>
+    <string name="string_add_note">Adicionar Nota</string>
+    <string name="string_update_note">Atualizar Nota</string>
+</resources>
