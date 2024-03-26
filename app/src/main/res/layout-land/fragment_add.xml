@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="5sp"
-    tools:context=".fragments.update.UpdateFragment">
+    android:padding="25sp"
+    tools:context=".fragments.add.AddFragment">
 
     <LinearLayout
-        android:id="@+id/ll_main_layout_update_note"
+        android:id="@+id/ll_main_layout_add_report"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="left"
@@ -18,31 +18,25 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/string_portrait"
+            android:text="@string/string_landscape"
             android:textSize="30dp"
             android:layout_marginBottom="25dp"
             android:layout_gravity="center"/>
 
         <EditText
-            android:id="@+id/updateNote"
+            android:id="@+id/addNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/string_update_note"/>
+            android:hint="@string/string_add_note"/>
 
         <Button
-            android:id="@+id/update"
+            android:id="@+id/save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/string_save" />
 
         <Button
-            android:id="@+id/delete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/string_delete" />
-
-        <Button
-            android:id="@+id/backToListFromUpdate"
+            android:id="@+id/backToList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/string_back" />
