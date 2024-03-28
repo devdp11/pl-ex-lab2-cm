@@ -30,6 +30,12 @@
             android:hint="@string/string_add_note"/>
 
         <Button
+            android:id="@+id/addDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string_select_date" />
+
+        <Button
             android:id="@+id/save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

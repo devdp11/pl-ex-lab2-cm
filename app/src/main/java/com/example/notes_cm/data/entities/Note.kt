@@ -11,6 +11,6 @@ import java.time.LocalDate
 @Entity(tableName = "notes")
 class Note(
     @PrimaryKey(autoGenerate = true) val id: Int,
-    @ColumnInfo(name = "note") val note: String
-    // @ColumnInfo(name = "date") val date: LocalDate
+    @ColumnInfo(name = "note") val note: String,
+    // @ColumnInfo(name = "date") val date: String
 ) : Parcelable

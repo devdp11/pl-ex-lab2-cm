@@ -13,9 +13,14 @@ import androidx.navigation.fragment.findNavController
 import com.example.notes_cm.R
 import com.example.notes_cm.data.entities.Note
 import com.example.notes_cm.data.vm.NoteViewModel
+import com.google.android.material.datepicker.MaterialDatePicker
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class AddFragment : Fragment() {
     private lateinit var mNoteViewModel: NoteViewModel
+    private var noteDate: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,21 +40,34 @@ class AddFragment : Fragment() {
             findNavController().navigate(R.id.action_addFragment_to_listFragment)
         }
 
+        val dateButton = view.findViewById<Button>(R.id.addDate)
+        dateButton.setOnClickListener {
+            showDateModal()
+        }
+
         return view
+    }
+
+    private fun showDateModal() {
+        val datePicker = MaterialDatePicker.Builder.datePicker().build()
+        datePicker.addOnPositiveButtonClickListener { selection ->
+            noteDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date(selection))
+        }
+        datePicker.show(childFragmentManager, "datePicker")
     }
 
     private fun addNote() {
         val noteText = view?.findViewById<EditText>(R.id.addNote)?.text.toString()
 
         if(noteText.isEmpty()) {
-            Toast.makeText(view?.context, "Não pode uma nota vazia!", Toast.LENGTH_LONG).show()
+            Toast.makeText(view?.context, getString(R.string.string_add_note_error), Toast.LENGTH_LONG).show()
         }
         else {
             val note = Note(0, noteText)
 
             mNoteViewModel.addNote(note)
 
-            Toast.makeText(requireContext(), "Gravado com sucesso!", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), getString(R.string.string_add_note_sucess), Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_addFragment_to_listFragment)
         }
     }

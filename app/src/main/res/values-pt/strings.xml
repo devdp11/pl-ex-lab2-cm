@@ -8,4 +8,13 @@
     <string name="string_landscape">Vista Landscape</string>
     <string name="string_add_note">Adicionar Nota</string>
     <string name="string_update_note">Atualizar Nota</string>
+    <string name="string_select_date">Selecionar Data</string>
+    <string name="string_add_note_sucess">Nota criada com sucesso</string>
+    <string name="string_add_note_error">Aconteceu um erro ao criar nota</string>
+    <string name="string_update_note_sucess">Nota atualizada com sucesso</string>
+    <string name="string_update_note_error">Aconteceu um erro ao atualizar nota</string>
+    <string name="string_delete_note">Nota foi apagada com sucesso</string>
+    <string name="string_yes">Sim</string>
+    <string name="string_no">Não</string>
+    <string name="string_confirmation">Tem a certeza que deseja prosseguir?</string>
 </resources>

@@ -7,4 +7,13 @@
     <string name="string_landscape">Landscape View</string>
     <string name="string_add_note">Add Note</string>
     <string name="string_update_note">Update Note</string>
+    <string name="string_select_date">Select Date</string>
+    <string name="string_add_note_sucess">Note has been created successfully</string>
+    <string name="string_add_note_error">An error occurred creating the note</string>
+    <string name="string_update_note_sucess">Note has been updated successfully</string>
+    <string name="string_update_note_error">An error occurred updating the note</string>
+    <string name="string_delete_note">Note has been deleted successfully</string>
+    <string name="string_yes">Yes</string>
+    <string name="string_no">No</string>
+    <string name="string_confirmation">Are you sure you want to continue?</string>
 </resources>
