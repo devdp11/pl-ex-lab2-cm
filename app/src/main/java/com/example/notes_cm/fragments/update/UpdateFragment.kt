@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -25,7 +26,7 @@ import java.util.Locale
 class UpdateFragment : Fragment() {
     private  val args by navArgs<UpdateFragmentArgs>()
     private lateinit var mNoteViewModel: NoteViewModel
-    private var noteDate: String = ""
+    private var updateNoteDate: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,21 +64,21 @@ class UpdateFragment : Fragment() {
     private fun showDateModal() {
         val datePicker = MaterialDatePicker.Builder.datePicker().build()
         datePicker.addOnPositiveButtonClickListener { selection ->
-            noteDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date(selection))
+            updateNoteDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date(selection))
         }
         datePicker.show(childFragmentManager, "datePicker")
     }
 
-    private  fun updateNote(){
-        val noteText = view?.findViewById<EditText>(R.id.updateNote)?.text.toString()
+    private fun updateNote(){
+        val updatedNoteText = view?.findViewById<EditText>(R.id.updateNote)?.text.toString()
 
-        if(noteText.isEmpty()) {
+        if(updatedNoteText.isEmpty()) {
             makeText(context , getString(R.string.string_update_note_error), Toast.LENGTH_LONG).show()
         }
         else {
-            val note = Note(args.currentNote.id, noteText)
+            val updatedNote = Note(args.currentNote.id, updatedNoteText, updateNoteDate)
 
-            mNoteViewModel.updateNote(note)
+            mNoteViewModel.updateNote(updatedNote)
 
             makeText(requireContext(), getString(R.string.string_update_note_sucess), Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
