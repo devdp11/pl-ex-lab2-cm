@@ -76,9 +76,13 @@ class UpdateFragment : Fragment() {
             makeText(context , getString(R.string.string_update_note_error), Toast.LENGTH_LONG).show()
         }
         else {
-            val updatedNote = Note(args.currentNote.id, updatedNoteText, updateNoteDate)
-
-            mNoteViewModel.updateNote(updatedNote)
+            if (updateNoteDate.isEmpty()) {
+                val updatedNote1 = Note(args.currentNote.id, updatedNoteText, args.currentNote.date)
+                mNoteViewModel.updateNote(updatedNote1)
+            } else {
+                val updatedNote2 = Note(args.currentNote.id, updatedNoteText, updateNoteDate)
+                mNoteViewModel.updateNote(updatedNote2)
+            }
 
             makeText(requireContext(), getString(R.string.string_update_note_sucess), Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
