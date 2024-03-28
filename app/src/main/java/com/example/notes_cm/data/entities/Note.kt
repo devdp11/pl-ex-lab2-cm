@@ -12,5 +12,5 @@ import java.time.LocalDate
 class Note(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "note") val note: String,
-    // @ColumnInfo(name = "date") val date: String
+    @ColumnInfo(name = "date") val date: String
 ) : Parcelable

@@ -63,12 +63,17 @@ class AddFragment : Fragment() {
             Toast.makeText(view?.context, getString(R.string.string_add_note_error), Toast.LENGTH_LONG).show()
         }
         else {
-            val note = Note(0, noteText)
+            if (noteDate.isEmpty()) {
+                Toast.makeText(view?.context, getString(R.string.string_add_note_error), Toast.LENGTH_LONG).show()
+            } else {
+                val addedNote = Note(0, noteText, noteDate)
 
-            mNoteViewModel.addNote(note)
+                mNoteViewModel.addNote(addedNote)
 
-            Toast.makeText(requireContext(), getString(R.string.string_add_note_sucess), Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_addFragment_to_listFragment)
+                Toast.makeText(requireContext(), getString(R.string.string_add_note_sucess), Toast.LENGTH_LONG).show()
+                findNavController().navigate(R.id.action_addFragment_to_listFragment)
+            }
+
         }
     }
 }
